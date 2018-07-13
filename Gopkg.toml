@@ -1,0 +1,23 @@
+required = [
+  "k8s.io/code-generator/cmd/client-gen",
+  "k8s.io/code-generator/cmd/deepcopy-gen",
+  "k8s.io/code-generator/cmd/defaulter-gen",
+  "k8s.io/code-generator/cmd/lister-gen",
+  "k8s.io/code-generator/cmd/informer-gen",
+]
+
+[prune]
+  go-tests = true
+  unused-packages = true
+
+  [[prune.project]]
+    name = "k8s.io/code-generator"
+    unused-packages = false
+
+[[constraint]]
+  branch = "release-1.11"
+  name = "k8s.io/apimachinery"
+
+[[constraint]]
+  branch = "release-1.11"
+  name = "k8s.io/code-generator"
